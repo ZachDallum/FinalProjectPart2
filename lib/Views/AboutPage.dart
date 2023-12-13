@@ -15,12 +15,18 @@ class _AboutPageState extends State<AboutPage> {
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Expanded(
+              child: Text(
+                "This is an app that will allow you to make API calls to retrieve information about teams in the NBA",
+              ),
+            ),
             Text(
-                "This is an app that will allow you to make api calls to retrieve information about players in the NBA"),
-            SizedBox(height: 16.0),
-            Text("Developed by Zach Dallum for CMSC 2204."),
+              "Developed by Zach Dallum for CMSC 2204",
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),

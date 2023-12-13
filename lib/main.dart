@@ -1,4 +1,5 @@
 import 'package:finalproject/Repositories/DataService.dart';
+import 'package:finalproject/Views/TeamList.dart';
 import 'package:flutter/material.dart';
 import 'Views/AboutPage.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Dallum Final Project'),
@@ -65,13 +66,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Login Success'),
-          duration: Duration(seconds: 3),
-        ),
-      );
+      openTeamList();
     }
+  }
+
+  void openTeamList() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => TeamList()),
+    );
   }
 
   void openAboutPage() {
@@ -87,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
